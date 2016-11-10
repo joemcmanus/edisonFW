@@ -1,0 +1,11 @@
+[Unit]
+Description=iptables
+
+[Service]
+WorkingDirectory=/etc
+ExecStart=/usr/sbin/iptables-restore  /etc/iptables.save
+ExecStop=/usr/sbin/iptables -F
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
